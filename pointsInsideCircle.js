@@ -11,18 +11,30 @@ function setup() {
 
     const numberOfPoints = 1000;
     const circle = {
-        minAngle: 270,
-        maxAngle: 360,
-        radius: screen.WIDTH / 2
+        minAngle: 0,
+        maxAngle: 90,
+        maxRadius: screen.WIDTH / 2,
+        minRadius: 0;
     }
-    const minRange = 0;
+
     const arrayX = [];
     const arrayY = [];
 
+    for (let counter = 0; counter < numberOfPoints; counter++) {
 
-    let radius = (Math.random() * (circle.radius - 0)) + 0;
-    let angle = (Math.random() * (circle.maxAngle - circle.minAngle)) + circle.minAngle;
+        let radius = (Math.random() * (circle.radius - 0)) + 0;
+        let angle = (Math.random() * (circle.maxAngle - circle.minAngle)) + circle.minAngle;
 
+        let x = radius * Math.cos(toRadian(angle));
+
+        let y = radius * Math.sin(toRadian(angle));
+
+        console.log(y)
+
+        arrayX.push(x);
+        arrayY.push(y);
+
+    }
     return { screen, arrayX, arrayY };
 }
 function toRadian(angle) {
@@ -39,8 +51,9 @@ function draw(w) {
 
     r.DrawCircleLines(0, 0, 500, r.WHITE);
 
-    for (i = 0; i < w.arrayX.length; i++)
+    for (i = 0; i < w.arrayX.length; i++) {
         r.DrawCircle(w.arrayX[i], w.arrayY[i], 5, r.SKYBLUE);
+    }
 
     r.EndDrawing();
 }
