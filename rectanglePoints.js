@@ -31,7 +31,7 @@ function setup() {
     const arrayY = [];
     let countY = 0;
     while (countY < 100) {
-        let y = (Math.random() * pointY.y1) + (pointY.y2 - pointY.y1);
+        let y = (Math.random() * (pointY.y2 - pointY.y1)) + (pointY.y1)
         arrayY.push(y);
         countY++;
     }
