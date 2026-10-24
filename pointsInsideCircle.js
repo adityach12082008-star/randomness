@@ -24,8 +24,9 @@ function setup() {
         WIDTH: 1000,
         HEIGHT: 800
     }
+
     r.SetTraceLogLevel(r.LOG_NONE);
-    r.InitWindow(screen.WIDTH, screen.HEIGHT, "points in 2d");
+    r.InitWindow(screen.WIDTH, screen.HEIGHT, "points inside circle");
     r.SetTargetFPS(60);
 
     const numberOfPoints = 300;
