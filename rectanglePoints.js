@@ -20,11 +20,10 @@ function setup() {
         y2: 200
     }
 
-
     const arrayX = [];
     let countX = 0;
     while (countX < 100) {
-        let x = (Math.random() * pointX.x1) + (pointX.x2 - pointX.x1);
+        let x = (Math.random() * pointX.x1) + 200;
         arrayX.push(x);
         countX++;
     }
