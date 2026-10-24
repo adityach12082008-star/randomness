@@ -1,5 +1,24 @@
 const r = require("raylib");
 
+function generatePoints(numberOfPoints, circle, arrayX, arrayY) {
+
+    for (let counter = 0; counter < numberOfPoints; counter++) {
+
+        let radius = (Math.random() * (circle.maxRadius - circle.minRadius)) + circle.minRadius;
+        let angle = (Math.random() * (circle.maxAngle - circle.minAngle)) + circle.minAngle;
+
+        let x = radius * Math.cos(toRadian(angle));
+        let y = radius * Math.sin(toRadian(angle));
+
+        arrayX.push(x);
+        arrayY.push(y);
+    }
+}
+
+function toRadian(angle) {
+    return angle * Math.PI / 180;
+}
+
 function setup() {
     const screen = {
         WIDTH: 1000,
@@ -9,45 +28,27 @@ function setup() {
     r.InitWindow(screen.WIDTH, screen.HEIGHT, "points in 2d");
     r.SetTargetFPS(60);
 
-    const numberOfPoints = 1000;
+    const numberOfPoints = 300;
     const circle = {
-        minAngle: 0,
-        maxAngle: 90,
         maxRadius: screen.WIDTH / 2,
-        minRadius: 0;
+        minRadius: 0,
+        maxAngle: 90,
+        minAngle: 0
     }
 
     const arrayX = [];
     const arrayY = [];
+    generatePoints(numberOfPoints, circle, arrayX, arrayY);
 
-    for (let counter = 0; counter < numberOfPoints; counter++) {
-
-        let radius = (Math.random() * (circle.radius - 0)) + 0;
-        let angle = (Math.random() * (circle.maxAngle - circle.minAngle)) + circle.minAngle;
-
-        let x = radius * Math.cos(toRadian(angle));
-
-        let y = radius * Math.sin(toRadian(angle));
-
-        console.log(y)
-
-        arrayX.push(x);
-        arrayY.push(y);
-
-    }
     return { screen, arrayX, arrayY };
 }
-function toRadian(angle) {
-    return angle * Math.PI / 180;
-}
+
 
 function update(w) { }
 
 function draw(w) {
     r.BeginDrawing();
     r.ClearBackground(r.BLACK);
-
-
 
     r.DrawCircleLines(0, 0, 500, r.WHITE);
 
