@@ -6,32 +6,33 @@ function setup() {
         HEIGHT: 800
     }
     r.SetTraceLogLevel(r.LOG_NONE);
-    r.InitWindow(screen.WIDTH, screen.HEIGHT, "dcs");
+    r.InitWindow(screen.WIDTH, screen.HEIGHT, "points in 2d");
     r.SetTargetFPS(60);
 
+    const numberOfPoints = 1000;
 
     const arrayX = [];
     let countX = 0;
-    while (countX < 1000) {
-        let x = Math.random() * 1000
-        arrayX.push(x)
+    while (countX < numberOfPoints) {
+        let x = Math.random() * numberOfPoints;
+        arrayX.push(x);
         countX++;
     }
 
     const arrayY = [];
     let countY = 0;
-    while (countY < 1000) {
-        let y = Math.random() * 1000
-        arrayY.push(y)
+    while (countY < numberOfPoints) {
+        let y = Math.random() * numberOfPoints;
+        arrayY.push(y);
         countY++;
     }
 
     return { screen, arrayX, arrayY };
 }
 
-function update(world) { }
+function update(w) { }
 
-function draw(world) {
+function draw(w) {
     r.BeginDrawing();
     r.ClearBackground(r.WHITE);
 
@@ -42,21 +43,21 @@ function draw(world) {
         a: 90
     }
 
-    for (i = 0; i < world.arrayX.length; i++)
-        r.DrawCircle(world.arrayX[i], world.arrayY[i], 5, color)
+    for (i = 0; i < w.arrayX.length; i++)
+        r.DrawCircle(w.arrayX[i], w.arrayY[i], 5, color);
 
     r.EndDrawing();
 }
 
-function loop(world) {
+function loop(w) {
     while (!r.WindowShouldClose()) {
-        update(world);
-        draw(world);
+        update(w);
+        draw(w);
     }
 }
 
 function main() {
-    world = setup();
-    loop(world);
+    w = setup();
+    loop(w);
 }
 main();

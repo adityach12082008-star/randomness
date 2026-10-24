@@ -13,36 +13,37 @@ function setup() {
     const max = 750
     const array = [];
     let count = 0;
+
     while (count < 100) {
-        let x = (Math.random() * min) + (max - min)
-        array.push(x)
+        let x = (Math.random() * min) + (max - min);
+        array.push(x);
         count++;
     }
 
     return { screen, array };
 }
 
-function update(world) { }
+function update(w) { }
 
-function draw(world) {
+function draw(w) {
     r.BeginDrawing();
     r.ClearBackground(r.WHITE);
 
-    for (i = 0; i < world.array.length; i++)
-        r.DrawRectangle(world.array[i], 0, 1, world.screen.HEIGHT, r.BLACK)
+    for (i = 0; i < w.array.length; i++)
+        r.DrawRectangle(w.array[i], 0, 1, w.screen.HEIGHT, r.BLACK)
 
     r.EndDrawing();
 }
 
-function loop(world) {
+function loop(w) {
     while (!r.WindowShouldClose()) {
-        update(world);
-        draw(world);
+        update(w);
+        draw(w);
     }
 }
 
 function main() {
-    world = setup();
-    loop(world);
+    w = setup();
+    loop(w);
 }
 main();
