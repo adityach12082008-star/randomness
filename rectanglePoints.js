@@ -11,18 +11,18 @@ function setup() {
     r.SetTargetFPS(60);
 
     const pointX = {
-        x1: 200,
-        x2: 300
+        x1: 400,
+        x2: 800
     }
 
     const pointY = {
-        y1: 100,
-        y2: 200
+        y1: 500,
+        y2: 700
     }
-
+    const numberOfPoints = 1000
     const arrayX = [];
     let countX = 0;
-    while (countX < 100) {
+    while (countX < numberOfPoints) {
         let x = (Math.random() * (pointX.x2 - pointX.x1)) + pointX.x1
         arrayX.push(x);
         countX++;
@@ -30,7 +30,7 @@ function setup() {
 
     const arrayY = [];
     let countY = 0;
-    while (countY < 100) {
+    while (countY < numberOfPoints) {
         let y = (Math.random() * (pointY.y2 - pointY.y1)) + (pointY.y1)
         arrayY.push(y);
         countY++;
@@ -53,7 +53,7 @@ function draw(w) {
     }
 
     for (i = 0; i < w.arrayX.length; i++)
-        r.DrawCircle(w.arrayX[i], w.arrayY[i], 5, color);
+        r.DrawCircle(w.arrayX[i], w.arrayY[i], 2, color);
 
     drawPoints(w.pointX, w.pointY);
 
