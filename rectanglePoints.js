@@ -23,7 +23,7 @@ function setup() {
     const arrayX = [];
     let countX = 0;
     while (countX < 100) {
-        let x = (Math.random() * pointX.x1) + 200;
+        let x = (Math.random() * (pointX.x2 - pointX.x1)) + pointX.x1
         arrayX.push(x);
         countX++;
     }
