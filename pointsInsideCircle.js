@@ -4,7 +4,7 @@ function generatePoints(numberOfPoints, circle, arrayX, arrayY) {
 
     for (let counter = 0; counter < numberOfPoints; counter++) {
 
-        let radius = (Math.random() * (circle.maxRadius - circle.minRadius)) + circle.minRadius;
+        let radius = (Math.random() * (circle.radius - circle.minRadius)) + circle.minRadius;
         let angle = (Math.random() * (circle.maxAngle - circle.minAngle)) + circle.minAngle;
 
         let x = radius * Math.cos(toRadian(angle));
@@ -29,8 +29,9 @@ function setup() {
     r.SetTargetFPS(60);
 
     const numberOfPoints = 300;
+
     const circle = {
-        maxRadius: screen.WIDTH / 2,
+        radius: screen.WIDTH / 2,
         minRadius: 0,
         maxAngle: 90,
         minAngle: 0
@@ -40,7 +41,7 @@ function setup() {
     const arrayY = [];
     generatePoints(numberOfPoints, circle, arrayX, arrayY);
 
-    return { screen, arrayX, arrayY };
+    return { screen, arrayX, arrayY, circle };
 }
 
 
@@ -50,7 +51,7 @@ function draw(w) {
     r.BeginDrawing();
     r.ClearBackground(r.BLACK);
 
-    r.DrawCircleLines(0, 0, 500, r.WHITE);
+    r.DrawCircleLines(0, 0, w.circle.radius, r.WHITE);
 
     for (i = 0; i < w.arrayX.length; i++) {
         r.DrawCircle(w.arrayX[i], w.arrayY[i], 5, r.SKYBLUE);
