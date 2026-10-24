@@ -19,21 +19,21 @@ function setup() {
         y1: 500,
         y2: 700
     }
-    const numberOfPoints = 1000
+    const numberOfPoints = 1000;
+
+    let count = 0;
+
     const arrayX = [];
-    let countX = 0;
-    while (countX < numberOfPoints) {
+    const arrayY = [];
+
+    while (count < numberOfPoints) {
         let x = (Math.random() * (pointX.x2 - pointX.x1)) + pointX.x1
         arrayX.push(x);
-        countX++;
-    }
 
-    const arrayY = [];
-    let countY = 0;
-    while (countY < numberOfPoints) {
         let y = (Math.random() * (pointY.y2 - pointY.y1)) + (pointY.y1)
         arrayY.push(y);
-        countY++;
+
+        count++;
     }
 
     return { screen, arrayX, arrayY, pointX, pointY };

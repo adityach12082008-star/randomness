@@ -21,11 +21,8 @@ function setup() {
 
 
     let radius = (Math.random() * (circle.radius - 0)) + 0;
-    for (i = 0; i <= 50; i++) {
-        let angle = (Math.random() * (circle.maxAngle - circle.minAngle)) + circle.minAngle;
-        console.log(angle);
+    let angle = (Math.random() * (circle.maxAngle - circle.minAngle)) + circle.minAngle;
 
-    }
     return { screen, arrayX, arrayY };
 }
 function toRadian(angle) {
