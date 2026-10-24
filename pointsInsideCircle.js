@@ -15,16 +15,16 @@ function setup() {
         maxAngle: 360,
         radius: screen.WIDTH / 2
     }
-
+    const minRange = 0;
     const arrayX = [];
     let x = 0;
     let y = 0;
     for (let angle = circle.minAngle; angle <= circle.maxAngle; angle++) {
-        x = circle.radius * Math.cos(toRadian(angle));
+        let maxRange = circle.radius * Math.cos(toRadian(angle));
+        let x = (Math.random() * (maxRange - minRange)) + minRange;
         arrayX.push(x);
-        console.log(x);
     }
-
+    // let x = (Math.random() * (pointX.x2 - pointX.x1)) + pointX.x1
     const arrayY = [];
     let countY = 0;
     while (countY < numberOfPoints) {
