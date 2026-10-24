@@ -9,6 +9,7 @@ function setup() {
     r.InitWindow(screen.WIDTH, screen.HEIGHT, "dcs");
     r.SetTargetFPS(60);
 
+
     const arrayX = [];
     let countX = 0;
     while (countX < 1000) {
