@@ -17,19 +17,14 @@ function setup() {
     }
     const minRange = 0;
     const arrayX = [];
+    const arrayY = [];
 
-    for (let angle = circle.minAngle; angle <= circle.maxAngle; angle++) {
-        let maxRange = circle.radius * Math.cos(toRadian(angle));
-        let x = (Math.random() * (maxRange - minRange)) + minRange;
-        arrayX.push(x);
+    for (i = 0; i < 50; i++) {
+        let radius = (Math.random() * (circle.radius - 0)) + 0;
+        console.log(radius);
+
     }
-
-    for (let angle = circle.minAngle; angle <= circle.maxAngle; angle++) {
-        let maxRange = circle.radius * Math.sin(toRadian(angle));
-        let y = (Math.random() * (maxRange - minRange)) + minRange;
-        arrayX.push(y);
-    }
-
+    // let x = (Math.random() * (pointX.x2 - pointX.x1)) + pointX.x1
     return { screen, arrayX, arrayY };
 }
 function toRadian(angle) {
