@@ -19,12 +19,13 @@ function setup() {
     const arrayX = [];
     const arrayY = [];
 
-    for (i = 0; i < 50; i++) {
-        let radius = (Math.random() * (circle.radius - 0)) + 0;
-        console.log(radius);
+
+    let radius = (Math.random() * (circle.radius - 0)) + 0;
+    for (i = 0; i <= 50; i++) {
+        let angle = (Math.random() * (circle.maxAngle - circle.minAngle)) + circle.minAngle;
+        console.log(angle);
 
     }
-    // let x = (Math.random() * (pointX.x2 - pointX.x1)) + pointX.x1
     return { screen, arrayX, arrayY };
 }
 function toRadian(angle) {
