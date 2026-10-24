@@ -44,7 +44,6 @@ function setup() {
     return { screen, arrayX, arrayY, circle };
 }
 
-
 function update(w) { }
 
 function draw(w) {
